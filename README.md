@@ -1,8 +1,13 @@
-# Tema 1: Investigación – Error Absoluto y Error Relativo
+# Tema 1 - Error Absoluto y Relativo
 
 ## 📌 Introducción
 
-En el ámbito de los métodos numéricos, **los errores** son inevitables debido a la naturaleza aproximada de los cálculos realizados. Dos de los conceptos fundamentales para medir la precisión de una aproximación son el **error absoluto** y el **error relativo**. Ambos permiten evaluar qué tan lejos está un valor calculado de un valor verdadero o exacto.
+En el análisis numérico, el error es una parte fundamental para evaluar la precisión de los resultados. Dado que en muchos casos no se obtiene el valor exacto, sino una aproximación, es importante medir **cuánto se desvía un resultado aproximado del valor real o exacto**.
+
+Los dos tipos más comunes de error son:
+
+- **Error Absoluto**
+- **Error Relativo**
 
 ---
 
@@ -10,88 +15,75 @@ En el ámbito de los métodos numéricos, **los errores** son inevitables debido
 
 ### 🔹 Definición
 
-El **error absoluto** se define como la **diferencia en valor absoluto** entre el valor exacto o verdadero y el valor aproximado.
+El **error absoluto** mide la diferencia directa entre el valor real y el valor aproximado.
 
-\[
-\text{Error absoluto} = | \text{Valor verdadero} - \text{Valor aproximado} |
-\]
+### 🔹 Fórmula
+
+\|valor real - valor aproximado\|
 
 ### 🔹 Características
 
-- Se expresa en **las mismas unidades** que la cantidad que se está midiendo.
-- No toma en cuenta la **magnitud del valor exacto**.
-- Es útil para saber **cuánto se ha desviado** el resultado.
+- Tiene las **mismas unidades** que la magnitud que se está midiendo.
+- Representa la **magnitud total** del error.
+- Puede ser útil cuando se conoce el valor exacto o se necesita una referencia directa.
 
 ### 🔹 Ejemplo
 
-Si el valor exacto es `5.00` y el valor aproximado es `4.83`, el error absoluto es:
+Si el valor real de una cantidad es 5.00 y el valor aproximado es 4.83, entonces:
 
-\[
-| 5.00 - 4.83 | = 0.17
-\]
+Error absoluto = |5.00 - 4.83| = 0.17
 
 ---
 
-## 📏 Error Relativo
+## 📊 Error Relativo
 
 ### 🔹 Definición
 
-El **error relativo** mide la proporción del error absoluto respecto al valor exacto. Es más útil cuando se comparan errores de diferentes magnitudes.
+El **error relativo** proporciona una idea del error en proporción al tamaño del valor real. Es especialmente útil para comparar errores en diferentes magnitudes.
 
-\[
-\text{Error relativo} = \frac{|\text{Valor verdadero} - \text{Valor aproximado}|}{|\text{Valor verdadero}|}
-\]
+### 🔹 Fórmula
 
-Este resultado **puede expresarse como porcentaje** multiplicando por 100.
-
-\[
-\text{Error relativo porcentual} = \left( \frac{|\text{Valor verdadero} - \text{Valor aproximado}|}{|\text{Valor verdadero}|} \right) \times 100\%
-\]
+\|valor real - valor aproximado\| / valor real
 
 ### 🔹 Características
 
-- Es **adimensional** (sin unidades).
-- Permite comparar errores entre valores muy grandes o muy pequeños.
-- Indica **cuán significativa es la diferencia** con respecto al valor real.
+- **No tiene unidades**, ya que es una razón.
+- Se puede expresar como número decimal o como porcentaje.
+- Permite una **comparación proporcional** del error.
 
 ### 🔹 Ejemplo
 
 Continuando con el caso anterior:
 
-\[
-\text{Error relativo} = \frac{0.17}{5.00} = 0.034 = 3.4\%
-\]
+Error relativo = |5.00 - 4.83| / 5.00 = 0.17 / 5.00 = 0.034 = 3.4%
 
 ---
 
-## 📊 Comparación
+## 📈 Comparación
 
-| Aspecto             | Error Absoluto                  | Error Relativo                       |
-|---------------------|----------------------------------|--------------------------------------|
-| Fórmula             | \|valor real - valor aproximado\| | \|valor real - valor aproximado\| / \|valor real\| |
-| Unidades            | Mismas que la medida            | No tiene unidades                   |
-| Uso principal       | Magnitud del error              | Proporcionalidad del error          |
-| Afectado por escala | Sí                              | No                                  |
-
----
-
-## 🧠 Importancia en los Métodos Numéricos
-
-- Permiten **evaluar la precisión** de un resultado.
-- Son fundamentales para **establecer tolerancias** en algoritmos iterativos.
-- Ayudan a **detectar errores de redondeo o truncamiento**.
-- El error relativo es especialmente importante cuando se trabaja con **valores muy pequeños o muy grandes**.
+| Aspecto             | Error Absoluto                      | Error Relativo                                  |
+|---------------------|--------------------------------------|-------------------------------------------------|
+| Fórmula             | \|valor real - valor aproximado\|   | \|valor real - valor aproximado\| / valor real |
+| Unidades            | Mismas que la medida                | No tiene unidades                              |
+| Uso principal       | Magnitud del error                  | Proporcionalidad del error                     |
+| Afectado por escala | Sí                                  | No                                              |
 
 ---
 
-## 📚 Conclusión
+## 🎯 Conclusiones
 
-Tanto el **error absoluto** como el **error relativo** son herramientas esenciales para evaluar la calidad de una solución numérica. Mientras el primero mide la desviación directa, el segundo proporciona una idea de la significancia de esa desviación. Comprender ambos es clave para aplicar correctamente los métodos numéricos y analizar los resultados obtenidos.
+- Ambos errores son fundamentales en el análisis numérico.
+- El error absoluto indica qué tan lejos está un valor aproximado del real.
+- El error relativo permite entender el error en relación con la magnitud del número.
+- Siempre es importante especificar qué tipo de error se está reportando.
 
 ---
 
-## 📎 Recursos adicionales
+## 🔗 Recursos adicionales
 
-- Chapra, S. C., & Canale, R. P. (2015). *Métodos Numéricos para Ingenieros*.
-- Video explicativo: [https://www.youtube.com/watch?v=b7t1SENvuM0](https://www.youtube.com/watch?v=b7t1SENvuM0)
-- Ejercicios interactivos: [https://www.symbolab.com/solver/error-calculator](https://www.symbolab.com/solver/error-calculator)
+- [Khan Academy - Errores de medición](https://es.khanacademy.org/)
+- [Documentación sobre análisis numérico](https://es.wikipedia.org/wiki/An%C3%A1lisis_num%C3%A9rico)
+
+---
+
+> 📌 **Nota:** Para cálculos más precisos, es importante considerar el contexto del problema, las unidades utilizadas y la sensibilidad de los instrumentos de medición.
