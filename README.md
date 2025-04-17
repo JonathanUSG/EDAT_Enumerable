@@ -63,3 +63,31 @@ Con los mismos datos anteriores:
 
 $$
 \text{Error Relativo} = \frac{|10.5 - 10.1|}{10.5} = \frac{0.4}{10.5} \approx 0.0381
+$$
+
+Como porcentaje:
+
+$$
+\text{Error Relativo (\%)} \approx 3.81\%
+$$
+
+---
+
+## 📝 Conclusión
+
+- El **error absoluto** es útil cuando se quiere saber exactamente cuánto se ha desviado un valor.
+- El **error relativo** es útil para comparar la precisión de diferentes mediciones o métodos, sin importar la escala de los valores.
+- Ambos errores son fundamentales para evaluar la calidad de los resultados numéricos.
+
+---
+
+## 🔗 Recursos Adicionales
+
+- [Error absoluto y relativo (Wikipedia)](https://es.wikipedia.org/wiki/Error_absoluto_y_relativo)
+- Apuntes de clase
+- Ejercicios resueltos disponibles en la carpeta correspondiente
+
+---
+
+📌 *Recuerda que una buena comprensión del error permite seleccionar y evaluar mejor los métodos numéricos utilizados en problemas reales.*
+
