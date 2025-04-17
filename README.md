@@ -31,13 +31,6 @@ Son métodos que se aproximan a la solución mediante un proceso repetitivo. Son
 
 ---
 
-## 🛠️ Herramientas utilizadas
-
-- Java (NetBeans)
-- GitHub para control de versiones y documentación
-
----
-
 ## 📝 Recomendación
 
 Revisa el README dentro de cada carpeta para más detalles sobre los métodos específicos.
