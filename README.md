@@ -1,42 +1,61 @@
-# 📌 Métodos Cerrados para la Solución de Ecuaciones
+# 📌 Métodos Abiertos para la Solución de Ecuaciones
 
-Los métodos cerrados requieren un intervalo $[a, b]$ donde se garantice que exista una raíz, es decir, que $f(a) \cdot f(b) < 0$. Son conocidos por su **convergencia segura**, aunque lenta.
-
----
-
-## 🔹 Método de Bisección
-
-### 📘 Descripción
-Consiste en dividir a la mitad el intervalo $[a, b]$ y seleccionar la subparte donde cambie el signo de la función.
-
-### 📐 Fórmula
-$$
-x_r = \frac{a + b}{2}
-$$
-
-### ✅ Ventajas
-- Convergencia garantizada si $f(a) \cdot f(b) < 0$.
-- Método robusto y fácil de implementar.
-
-### ❌ Desventajas
-- Convergencia lenta.
-- No considera la forma de la función.
+Los métodos abiertos no necesitan un intervalo inicial que contenga la raíz. Solo requieren una o dos aproximaciones iniciales. **Son más rápidos pero menos estables** que los métodos cerrados.
 
 ---
 
-## 🔹 Método de Regla Falsa (Falsa Posición)
+## 🔹 Método del Punto Fijo
 
 ### 📘 Descripción
-Similar al de bisección, pero usa una línea recta para aproximar la raíz entre los puntos extremos del intervalo.
+Reescribe la ecuación $f(x) = 0$ como $x = g(x)$ y usa iteraciones con:
 
 ### 📐 Fórmula
 $$
-x_r = b - \frac{f(b)(a - b)}{f(a) - f(b)}
+x_{n+1} = g(x_n)
 $$
 
 ### ✅ Ventajas
-- Más rápido que la bisección en muchos casos.
-- Requiere mismo criterio de $f(a) \cdot f(b) < 0$.
+- Simple implementación.
 
 ### ❌ Desventajas
-- Puede estancarse si la forma de la función es desfavorable.
+- Convergencia no garantizada.
+- Requiere que $|g'(x)| < 1$ para converger.
+
+---
+
+## 🔹 Método de Newton-Raphson
+
+### 📘 Descripción
+Utiliza una aproximación lineal a la función usando su derivada.
+
+### 📐 Fórmula
+$$
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+$$
+
+### ✅ Ventajas
+- Rápida convergencia cerca de la raíz.
+
+### ❌ Desventajas
+- Requiere calcular derivadas.
+- Puede divergir si la aproximación inicial no es buena.
+
+---
+
+## 🔹 Método de la Secante
+
+### 📘 Descripción
+Aproxima la derivada de $f(x)$ usando dos puntos anteriores. Es una alternativa a Newton sin derivada explícita.
+
+### 📐 Fórmula
+$$
+x_{n+1} = x_n - f(x_n) \cdot \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
+$$
+
+### ✅ Ventajas
+- No requiere derivada.
+- Mejor convergencia que el punto fijo.
+
+### ❌ Desventajas
+- Necesita dos valores iniciales.
+- Puede ser inestable en algunos casos.
