@@ -1,54 +1,65 @@
-# 📚 Tema 2: Métodos de Solución de Ecuaciones
+# Tema 1: Error Absoluto y Error Relativo
 
-Este tema abarca diferentes métodos numéricos para encontrar raíces de funciones no lineales. La raíz de una función $f(x)$ es el valor de $x$ que hace que $f(x) = 0$. Los métodos se dividen en dos grandes categorías: **métodos cerrados** y **métodos abiertos**.
+## 📘 Introducción
 
----
+En los métodos numéricos, el **error** es una medida de la diferencia entre el valor real (o exacto) y el valor aproximado de una cantidad. Entender y calcular los errores es esencial para evaluar la precisión de los resultados obtenidos mediante aproximaciones numéricas.
 
-## 📦 Contenido
+Los dos tipos de error más comunes son:
 
-- 📁 `MetodosCerrados/`: Métodos que requieren un intervalo con un cambio de signo ($f(a) \cdot f(b) < 0$).
-  - Método de Bisección
-  - Método de la Regla Falsa
-
-- 📁 `MetodosAbiertos/`: Métodos que no necesitan un intervalo inicial, solo uno o dos valores de inicio.
-  - Método del Punto Fijo
-  - Método de Newton-Raphson
-  - Método de la Secante
+- **Error absoluto**
+- **Error relativo**
 
 ---
 
-## 🔍 Comparación General
+## 🟦 ¿Qué es el Error Absoluto?
 
-| Característica         | Métodos Cerrados               | Métodos Abiertos                      |
-|------------------------|--------------------------------|----------------------------------------|
-| Requieren intervalo    | Sí ($f(a) \cdot f(b) < 0$)     | No, solo valores iniciales            |
-| Convergencia           | Lenta pero garantizada         | Rápida, pero no siempre garantizada   |
-| Implementación         | Sencilla                       | Puede requerir derivadas              |
-| Ejemplos               | Bisección, Regla Falsa         | Punto Fijo, Newton-Raphson, Secante   |
+El **error absoluto** se refiere a la diferencia en valor absoluto entre el valor verdadero y el valor aproximado.
 
----
+### 🔹 Fórmula:
 
-## 🎯 Objetivo del Tema
+$$
+\text{Error Absoluto} = |x_{\text{verdadero}} - x_{\text{aproximado}}|
+$$
 
-El objetivo de este tema es que el estudiante:
-- Comprenda la diferencia entre métodos cerrados y abiertos.
-- Aplique cada método correctamente según el tipo de función y condiciones iniciales.
-- Evalúe ventajas y desventajas de cada técnica.
-- Analice la **convergencia** y **eficiencia** de cada método.
+### 🔹 Características:
+- Mide cuánto se desvía el valor aproximado del valor exacto.
+- Su unidad es la misma que la del valor medido.
+- Es útil cuando se necesita saber la magnitud del error en términos reales.
 
----
+### 🔹 Ejemplo:
 
-## 📌 Recomendaciones
+Si el valor real es $10.5$ y el valor aproximado es $10.1$:
 
-- Graficar la función antes de aplicar cualquier método.
-- Verificar que se cumplan las condiciones de uso de cada método.
-- Comparar el número de iteraciones requeridas por cada técnica.
+$$
+\text{Error Absoluto} = |10.5 - 10.1| = 0.4
+$$
 
 ---
 
-## 🧮 Notación
+## 🟨 ¿Qué es el Error Relativo?
 
-- $x_r$: Aproximación de la raíz.
-- $f(x)$: Función evaluada.
-- $x_n$: Iteración actual.
-- $x_{n+1}$: Siguiente iteración.
+El **error relativo** compara el error absoluto con el valor verdadero, y se expresa a menudo como un porcentaje.
+
+### 🔹 Fórmula:
+
+$$
+\text{Error Relativo} = \frac{|x_{\text{verdadero}} - x_{\text{aproximado}}|}{|x_{\text{verdadero}}|}
+$$
+
+Si se desea expresar como porcentaje:
+
+$$
+\text{Error Relativo (\%)} = \left( \frac{|x_{\text{verdadero}} - x_{\text{aproximado}}|}{|x_{\text{verdadero}}|} \right) \times 100
+$$
+
+### 🔹 Características:
+- Es una medida adimensional (no tiene unidades).
+- Es útil cuando se necesita evaluar el error en términos proporcionales.
+- Ayuda a comparar la precisión de resultados en distintas escalas.
+
+### 🔹 Ejemplo:
+
+Con los mismos datos anteriores:
+
+$$
+\text{Error Relativo} = \frac{|10.5 - 10.1|}{10.5} = \frac{0.4}{10.5} \approx 0.0381
