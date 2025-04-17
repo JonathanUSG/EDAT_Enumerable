@@ -68,7 +68,7 @@ $$
 Como porcentaje:
 
 $$
-\text{Error Relativo (\%)} \approx 3.81\%)
+\text{Error Relativo (\%)} \approx 3.81\%
 $$
 
 ---
