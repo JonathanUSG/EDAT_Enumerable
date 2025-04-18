@@ -1,33 +1,50 @@
-# Métodos Iterativos para Sistemas de Ecuaciones Lineales
+# Tema 4: Métodos de Diferenciación e Integración Numérica 
 
-A diferencia de los métodos directos, los métodos iterativos calculan una sucesión de aproximaciones que convergen a la solución deseada. Son útiles para sistemas grandes y dispersos.
+Este tema abarca diversas técnicas utilizadas para la **aproximación de derivadas e integrales definidas**, fundamentales en el análisis y solución de problemas donde no es posible obtener una solución analítica exacta.
 
----
-
-## Métodos estudiados
-
-### Método de Jacobi
-Parte de un valor inicial para cada incógnita y repite cálculos usando exclusivamente los valores de la iteración anterior.
-
-### Método de Gauss-Seidel
-Al igual que Jacobi, pero utiliza los nuevos valores a medida que se van obteniendo dentro de la misma iteración.
+Se estudiaron y aplicaron **métodos numéricos** tanto de **diferenciación** como de **integración**, los cuales permiten obtener soluciones con un margen de error controlado.
 
 ---
 
-## Requisitos de convergencia
+## Objetivo del tema
 
-Para garantizar la convergencia de estos métodos, se recomienda que el sistema sea diagonalmente dominante o cumpla ciertos criterios de estabilidad.
-
----
-
-## 📂 Archivos incluidos
-
-- Implementación en Java de ambos métodos.
-- Comentarios explicativos en el código.
+Comprender e implementar métodos de diferenciación e integración numérica, con el fin de resolver problemas aplicados a la ingeniería, física y otras áreas donde la solución exacta no está disponible de manera directa.
 
 ---
 
-## Aplicación
+## Contenido del tema
 
-Útiles cuando el sistema tiene muchas incógnitas y no se desea realizar operaciones directas que consuman demasiada memoria.
+### Métodos de Diferenciación Numérica
 
+Estos métodos permiten aproximar la derivada de una función usando puntos específicos del dominio:
+
+- **Método de los 3 puntos**
+- **Método de los 5 puntos**
+
+Ambos se aplican para calcular derivadas de primer y segundo orden, usando una combinación lineal de valores de la función en distintos puntos.
+
+---
+
+### Métodos de Integración Numérica
+
+Permiten aproximar el valor de una **integral definida** usando sumatorias de áreas bajo la curva:
+
+- **Regla del Trapecio**
+- **Cuadratura Gaussiana**
+- **Regla de Simpson 1/3**
+- **Regla de Simpson 3/8**
+
+Cada método tiene sus propias características en cuanto a exactitud, número de puntos utilizados y complejidad en la implementación.
+
+---
+
+## Archivos incluidos
+
+Este tema se encuentra organizado en una carpeta principal con subcarpetas por método. Cada subcarpeta incluye:
+
+- Código en Java que implementa el método correspondiente.
+- README el cual contiene explicación teórica sobre cada método visto.
+
+---
+
+> **Nota:** Todos los programas fueron realizados en **Java**, asegurando que cada uno sea funcional y correcto tras diversas pruebas.  
