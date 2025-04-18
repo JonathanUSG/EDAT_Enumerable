@@ -1,37 +1,28 @@
-# Tema 3: Métodos para Sistemas de Ecuaciones Lineales
+# Métodos Directos para Sistemas de Ecuaciones Lineales
 
-En este tema se abordaron distintos métodos numéricos para la resolución de sistemas de ecuaciones lineales, una herramienta fundamental en el análisis matemático y computacional. Estos métodos permiten obtener soluciones aproximadas cuando los sistemas son grandes o difíciles de resolver analíticamente.
-
----
-
-## 🔹 Clasificación de los Métodos
-
-Los métodos se agrupan en dos grandes categorías:
-
-### 📂 Métodos Directos
-- Eliminación Gaussiana
-- Gauss-Jordan
-
-Estos métodos permiten obtener la solución exacta (en términos numéricos) en un número finito de pasos, asumiendo que no ocurren errores de redondeo.
-
-### 📂 Métodos Iterativos
-- Gauss-Seidel
-- Jacobi
-
-Son métodos que se aproximan a la solución mediante un proceso repetitivo. Son útiles para sistemas grandes y dispersos, y requieren una condición de convergencia.
+Los métodos directos permiten obtener una solución numérica precisa en un número finito de pasos (idealmente), siempre que no haya errores de redondeo significativos. Son ampliamente usados cuando el sistema es de tamaño moderado.
 
 ---
 
-## 📚 Contenido
+## 📌 Métodos estudiados
 
-- Apuntes y explicaciones teóricas de cada método
-- Archivos de código en Java implementando cada técnica
-- Ejercicios desarrollados en clase
-- Recursos visuales y ejemplos numéricos
+### 🔸 Eliminación Gaussiana
+Consiste en transformar el sistema de ecuaciones en una forma triangular superior y luego aplicar sustitución regresiva.
+
+### 🔸 Gauss-Jordan
+Extiende la eliminación Gaussiana hasta obtener una matriz identidad, de donde se extraen directamente las soluciones.
 
 ---
 
-## 📝 Recomendación
+## 📂 Archivos incluidos
 
-Revisa el README dentro de cada carpeta para más detalles sobre los métodos específicos.
+- Implementación en Java de cada método
+- Ejemplos resueltos en código
+- Casos de prueba sencillos
+
+---
+
+## 🔍 Aplicación
+
+Estos métodos son apropiados para sistemas pequeños a medianos que no cambian con frecuencia.
 
