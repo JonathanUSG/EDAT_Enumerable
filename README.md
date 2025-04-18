@@ -1,15 +1,17 @@
-# Métodos de Diferenciación Numérica 
+# Métodos de Integración Numérica 
 
-Esta carpeta contiene los métodos numéricos utilizados para **aproximar derivadas** de una función, cuando no es posible obtener una derivada analítica o se requiere una aproximación basada en datos discretos.
+Esta carpeta contiene los métodos numéricos para **aproximar integrales definidas**, especialmente útiles cuando la integral no puede resolverse de manera exacta o se trabaja con datos discretos.
 
 ---
 
 ## Métodos incluidos
 
-- **Método de los 3 puntos**
-- **Método de los 5 puntos**
+- **Regla del Trapecio**
+- **Simpson 1/3**
+- **Simpson 3/8**
+- **Cuadratura Gaussiana**
 
-Ambos métodos permiten calcular la primera y segunda derivada utilizando fórmulas de diferencias finitas, tomando como referencia valores de la función en puntos igualmente espaciados.
+Cada uno de estos métodos aproxima el área bajo la curva mediante sumas ponderadas, variando en precisión y complejidad según el número de puntos utilizados.
 
 ---
 
@@ -18,18 +20,18 @@ Ambos métodos permiten calcular la primera y segunda derivada utilizando fórmu
 Cada método cuenta con:
 
 - Código fuente en Java.
-- Explicación teórica en formato Markdown.
+- Documentación en formato Markdown.
 
 ---
 
 ## Aplicaciones
 
-Los métodos de diferenciación numérica son esenciales para problemas de:
+Se usan ampliamente para:
 
-- Análisis de señales.
-- Modelado físico y matemático.
-- Ingeniería y simulación de sistemas dinámicos.
+- Cálculo de áreas.
+- Solución de problemas de física e ingeniería.
+- Integración de funciones donde no existe primitiva exacta.
 
 ---
 
-> Cada implementación fue probada con funciones comunes para verificar su exactitud.
+> Todos los métodos fueron aplicados a funciones conocidas y verificados con resultados gráficos para validar su precisión.
