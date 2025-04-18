@@ -4,6 +4,7 @@ Este tema abarca diversas técnicas utilizadas para la **aproximación de deriva
 
 Se estudiaron y aplicaron **métodos numéricos** tanto de **diferenciación** como de **integración**, los cuales permiten obtener soluciones con un margen de error controlado.
 
+
 ---
 
 ## Objetivo del tema
