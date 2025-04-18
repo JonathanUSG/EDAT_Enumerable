@@ -1,28 +1,33 @@
-# Métodos Directos para Sistemas de Ecuaciones Lineales
+# Métodos Iterativos para Sistemas de Ecuaciones Lineales
 
-Los métodos directos permiten obtener una solución numérica precisa en un número finito de pasos (idealmente), siempre que no haya errores de redondeo significativos. Son ampliamente usados cuando el sistema es de tamaño moderado.
+A diferencia de los métodos directos, los métodos iterativos calculan una sucesión de aproximaciones que convergen a la solución deseada. Son útiles para sistemas grandes y dispersos.
 
 ---
 
-## 📌 Métodos estudiados
+## Métodos estudiados
 
-### 🔸 Eliminación Gaussiana
-Consiste en transformar el sistema de ecuaciones en una forma triangular superior y luego aplicar sustitución regresiva.
+### Método de Jacobi
+Parte de un valor inicial para cada incógnita y repite cálculos usando exclusivamente los valores de la iteración anterior.
 
-### 🔸 Gauss-Jordan
-Extiende la eliminación Gaussiana hasta obtener una matriz identidad, de donde se extraen directamente las soluciones.
+### Método de Gauss-Seidel
+Al igual que Jacobi, pero utiliza los nuevos valores a medida que se van obteniendo dentro de la misma iteración.
+
+---
+
+## Requisitos de convergencia
+
+Para garantizar la convergencia de estos métodos, se recomienda que el sistema sea diagonalmente dominante o cumpla ciertos criterios de estabilidad.
 
 ---
 
 ## 📂 Archivos incluidos
 
-- Implementación en Java de cada método
-- Ejemplos resueltos en código
-- Casos de prueba sencillos
+- Implementación en Java de ambos métodos.
+- Comentarios explicativos en el código.
 
 ---
 
-## 🔍 Aplicación
+## Aplicación
 
-Estos métodos son apropiados para sistemas pequeños a medianos que no cambian con frecuencia.
+Útiles cuando el sistema tiene muchas incógnitas y no se desea realizar operaciones directas que consuman demasiada memoria.
 
