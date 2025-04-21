@@ -1,210 +1,77 @@
-# 📘 Preguntas y Respuestas sobre el Problema de Desintegración Radiactiva
+# Preguntas y Respuestas sobre Sistemas de Ecuaciones Diferenciales Lineales
 
-Este documento recopila las preguntas más comunes relacionadas con el modelado matemático de la desintegración radiactiva, resolviendo paso a paso el proceso mediante ecuaciones diferenciales y transformadas de Laplace.
+## ¿Qué es un sistema de ecuaciones diferenciales lineales?
+Es un conjunto de ecuaciones diferenciales lineales que involucran varias funciones desconocidas y sus derivadas, donde los términos son lineales en las variables y sus derivadas.
 
----
-
-## 📌 1. ¿Qué tipo de ecuación diferencial se utiliza para modelar la desintegración radiactiva?
-
-Una **ecuación diferencial lineal de primer orden**:
+## ¿Cuál es la diferencia entre un sistema homogéneo y uno no homogéneo?
+Un sistema homogéneo tiene términos independientes iguales a cero:
 
 $$
-\frac{dN}{dt} = -kN
+\mathbf{A}\mathbf{x}' = \mathbf{B}\mathbf{x}
 $$
 
-donde:
-
-- $N(t)$ es la cantidad de material radiactivo en el tiempo $t$.
-- $k$ es la **constante de desintegración**.
-
----
-
-## 📌 2. ¿Por qué el signo en la ecuación diferencial es negativo?
-
-El signo negativo indica que la cantidad de material **disminuye con el tiempo**, ya que la desintegración reduce la masa original.
-
----
-
-## 📌 3. ¿Cuál es la condición inicial dada en el problema?
-
-La **condición inicial** es:
+Mientras que un sistema no homogéneo incluye términos independientes:
 
 $$
-N(0) = N_0
+\mathbf{A}\mathbf{x}' = \mathbf{B}\mathbf{x} + \mathbf{f}(t)
 $$
 
-donde $N_0$ representa la masa inicial del material.
+## ¿Qué caracteriza a una ecuación diferencial lineal?
+La ecuación es lineal si las variables dependientes y sus derivadas aparecen de forma lineal, sin productos ni potencias no lineales.
 
----
+## ¿Qué es la solución general de un sistema de ecuaciones diferenciales lineales homogéneo?
+Es el conjunto de todas las soluciones, que se expresa como una combinación lineal de soluciones fundamentales asociadas a los valores propios de la matriz del sistema.
 
-## 📌 4. ¿Qué información proporciona la condición en $t = 1$?
+## ¿Qué es una solución particular de un sistema no homogéneo?
+Es una solución específica que satisface el sistema no homogéneo, generalmente encontrada por métodos como variación de parámetros o coeficientes indeterminados.
 
-Se indica que el **10% del material se ha desintegrado** tras una hora:
+## ¿Cómo se relacionan la solución general y la solución particular en un sistema no homogéneo?
+La solución general es la suma de la solución general del sistema homogéneo asociado y una solución particular del sistema no homogéneo.
 
-$$
-N(1) = 0.9N_0
-$$
+## ¿Qué papel juega la matriz de coeficientes en un sistema lineal?
+Define las relaciones entre las variables y sus derivadas, y sus valores propios determinan el comportamiento de las soluciones.
 
----
+## ¿Qué es el método de los operadores en sistemas de ecuaciones diferenciales?
+Es un método que usa operadores diferenciales para transformar el sistema en una forma algebraica, eliminando variables para resolver las ecuaciones.
 
-## 📌 5. ¿Por qué se usa la transformada de Laplace para resolver este problema?
+## ¿Cuándo es útil la transformada de Laplace para resolver sistemas de ecuaciones diferenciales?
+Es útil para sistemas lineales con condiciones iniciales, ya que convierte las ecuaciones diferenciales en ecuaciones algebraicas en el dominio de \( s \).
 
-La **transformada de Laplace** convierte ecuaciones diferenciales en algebraicas, lo cual:
+## ¿Qué ventaja tiene la transformada de Laplace sobre otros métodos?
+Incorpora automáticamente las condiciones iniciales y simplifica la resolución de sistemas con términos no homogéneos o impulsos.
 
-- Facilita el tratamiento de condiciones iniciales.
-- Permite una resolución sistemática.
+## ¿Qué tipo de aplicaciones modelan los sistemas de ecuaciones diferenciales lineales?
+Modelan fenómenos en física (circuitos eléctricos), biología (crecimiento poblacional), química (reacciones químicas) e ingeniería (sistemas mecánicos).
 
----
-
-## 📌 6. ¿Cuál es la transformada de Laplace de $\frac{dN}{dt}$?
-
-$$
-\mathcal{L}\left\{\frac{dN}{dt}\right\} = s \bar{N}(s) - N_0
-$$
-
----
-
-## 📌 7. ¿Qué resulta al aplicar la transformada al lado derecho de $\frac{dN}{dt} = -kN$?
+## ¿Qué son los valores propios en el contexto de sistemas homogéneos?
+Son los valores \( \lambda \) que satisfacen:
 
 $$
-\mathcal{L}\left\{-kN(t)\right\} = -k \bar{N}(s)
+\det(\mathbf{A} - \lambda \mathbf{I}) = 0
 $$
 
----
+Y determinan la forma de las soluciones exponenciales.
 
-## 📌 8. ¿Cuál es la expresión de $\bar{N}(s)$ tras resolver la ecuación algebraica?
+## ¿Qué sucede si un sistema tiene valores propios complejos?
+Las soluciones incluyen términos oscilatorios (seno y coseno), además de exponenciales, reflejando comportamiento oscilatorio amortiguado o no amortiguado.
 
-$$
-\bar{N}(s) = \frac{N_0}{s + k}
-$$
+## ¿Cómo se usa el método de eliminación en el método de los operadores?
+Se aplican operadores diferenciales para eliminar una variable, reduciendo el sistema a una ecuación diferencial de orden superior que se resuelve por separado.
 
----
+## ¿Qué es una solución fundamental de un sistema homogéneo?
+Es un conjunto de soluciones linealmente independientes que forman una base para el espacio de soluciones del sistema.
 
-## 📌 9. ¿Cómo se obtiene $N(t)$ a partir de $\bar{N}(s)$?
+## ¿Por qué es importante la linealidad en estos sistemas?
+La linealidad permite superponer soluciones (principio de superposición), facilitando la construcción de la solución general.
 
-Aplicando la **transformada inversa de Laplace**:
+## ¿Qué papel juegan las condiciones iniciales en la resolución de sistemas?
+Determinan los coeficientes de la solución general para obtener una solución particular que satisface el problema específico.
 
-$$
-\mathcal{L}^{-1}\left\{\frac{1}{s + k}\right\} = e^{-kt}
-$$
+## ¿Cómo se verifica si un conjunto de soluciones es fundamental?
+Se verifica calculando el Wronskiano; si es no nulo, las soluciones son linealmente independientes y forman un conjunto fundamental.
 
-Por lo tanto:
+## ¿Qué limitaciones tiene la transformada de Laplace?
+Requiere que las funciones sean de crecimiento exponencial y que las transformadas existan, lo que puede complicarse con sistemas no lineales o condiciones no estándar.
 
-$$
-N(t) = N_0 e^{-kt}
-$$
-
----
-
-## 📌 10. ¿Cómo se usa la condición $N(1) = 0.9N_0$ para encontrar $k$?
-
-Sustituyendo en la solución:
-
-$$
-0.9N_0 = N_0 e^{-k} \Rightarrow e^{-k} = 0.9 \Rightarrow k = -\ln(0.9)
-$$
-
----
-
-## 📌 11. ¿Qué valor aproximado tiene $k$?
-
-$$
-k \approx -\ln(0.9) \approx 0.10536
-$$
-
----
-
-## 📌 12. ¿Qué es la vida media en este contexto?
-
-Es el tiempo $t_{1/2}$ en el cual la cantidad de material se reduce a la mitad:
-
-$$
-N(t_{1/2}) = \frac{N_0}{2}
-$$
-
----
-
-## 📌 13. ¿Cómo se deriva la fórmula de la vida media?
-
-Desde:
-
-$$
-\frac{N_0}{2} = N_0 e^{-k t_{1/2}} \Rightarrow e^{-k t_{1/2}} = \frac{1}{2} \Rightarrow k t_{1/2} = \ln 2
-$$
-
-Entonces:
-
-$$
-t_{1/2} = \frac{\ln 2}{k}
-$$
-
----
-
-## 📌 14. ¿Cuál es la expresión exacta de la vida media en este problema?
-
-$$
-t_{1/2} = \frac{\ln 2}{-\ln(0.9)} = \frac{\ln 2}{\ln\left(\frac{10}{9}\right)}
-$$
-
----
-
-## 📌 15. ¿Cuál es el valor numérico aproximado de la vida media?
-
-$$
-t_{1/2} \approx \frac{0.69315}{0.10536} \approx 6.579 \text{ horas}
-$$
-
----
-
-## 📌 16. ¿Por qué no es necesario conocer $N_0$ explícitamente?
-
-Porque $N_0$ se **cancela en las proporciones** al sustituir condiciones como:
-
-- $N(1) = 0.9N_0$
-- $N(t_{1/2}) = \frac{N_0}{2}$
-
----
-
-## 📌 17. ¿Qué tipo de función es $N(t) = N_0 e^{-kt}$?
-
-Una **función exponencial decreciente**.
-
----
-
-## 📌 18. ¿Cómo se verifica que la solución satisface la condición en $t = 1$?
-
-Sustituyendo $k = -\ln(0.9)$:
-
-$$
-N(1) = N_0 e^{-(-\ln(0.9))} = N_0 e^{\ln(0.9)} = 0.9N_0
-$$
-
----
-
-## 📌 19. ¿Qué representa físicamente la constante $k$?
-
-La constante de desintegración $k$ representa **la rapidez con la que el material se desintegra**.
-
----
-
-## 📌 20. ¿Qué pasaría si el 20% del material se desintegrara en una hora?
-
-Tendríamos:
-
-$$
-e^{-k} = 0.8 \Rightarrow k = -\ln(0.8)
-$$
-
-Y la vida media sería:
-
-$$
-t_{1/2} = \frac{\ln 2}{-\ln(0.8)}
-$$
-
-Este valor sería **menor**, indicando una desintegración **más rápida**.
-
----
-
-### 📎 Nota final
-
-Este problema representa un clásico modelo matemático aplicado a la física nuclear y a otros contextos donde se presentan procesos de decaimiento exponencial.
+## ¿Cómo se relacionan los sistemas de ecuaciones diferenciales con los modelos dinámicos?
+Los sistemas de ecuaciones diferenciales describen cómo cambian las variables de un sistema dinámico (como poblaciones o circuitos) a lo largo del tiempo, capturando interacciones entre componentes.
