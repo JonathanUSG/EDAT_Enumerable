@@ -1,160 +1,210 @@
-# 📘 Preguntas y Respuestas sobre Sistemas de Ecuaciones Diferenciales Lineales
+# 📘 Preguntas y Respuestas sobre el Problema de Desintegración Radiactiva
 
-## ❓ ¿Qué es un sistema de ecuaciones diferenciales lineales?
-Un sistema de ecuaciones diferenciales lineales es un conjunto de ecuaciones que involucran varias funciones desconocidas y sus derivadas, donde los términos son lineales:
-
-\[
-\mathbf{x}'(t) = A \mathbf{x}(t)
-\]
+Este documento recopila las preguntas más comunes relacionadas con el modelado matemático de la desintegración radiactiva, resolviendo paso a paso el proceso mediante ecuaciones diferenciales y transformadas de Laplace.
 
 ---
 
-## 🔄 ¿Cuál es la diferencia entre un sistema homogéneo y uno no homogéneo?
-- **Homogéneo:** 
-  \[
-  \mathbf{x}'(t) = A \mathbf{x}(t)
-  \]
-- **No homogéneo:** 
-  \[
-  \mathbf{x}'(t) = A \mathbf{x}(t) + \mathbf{f}(t)
-  \]
+## 📌 1. ¿Qué tipo de ecuación diferencial se utiliza para modelar la desintegración radiactiva?
 
----
+Una **ecuación diferencial lineal de primer orden**:
 
-## 🧮 ¿Qué caracteriza a una ecuación diferencial lineal?
-Una ecuación es lineal si las variables dependientes y sus derivadas aparecen solo con potencias de uno, sin productos entre ellas.
-
----
-
-## 📐 ¿Qué es la solución general de un sistema homogéneo?
-Es una combinación lineal de soluciones fundamentales:
-
-\[
-\mathbf{x}(t) = c_1 \mathbf{x}_1(t) + c_2 \mathbf{x}_2(t) + \dots + c_n \mathbf{x}_n(t)
-\]
-
----
-
-## 🔍 ¿Qué es una solución particular de un sistema no homogéneo?
-Es una solución específica que satisface:
-
-\[
-\mathbf{x}'(t) = A \mathbf{x}(t) + \mathbf{f}(t)
-\]
-
----
-
-## ➕ ¿Cómo se relacionan la solución general y la particular?
-La solución general del sistema no homogéneo es:
-
-\[
-\mathbf{x}(t) = \mathbf{x}_h(t) + \mathbf{x}_p(t)
-\]
+$$
+\frac{dN}{dt} = -kN
+$$
 
 donde:
-- \( \mathbf{x}_h(t) \): solución general del sistema homogéneo.
-- \( \mathbf{x}_p(t) \): solución particular del no homogéneo.
+
+- $N(t)$ es la cantidad de material radiactivo en el tiempo $t$.
+- $k$ es la **constante de desintegración**.
 
 ---
 
-## 🧩 ¿Qué papel juega la matriz de coeficientes?
-La matriz \( A \) determina cómo se relacionan las funciones y sus derivadas. Sus valores propios determinan el comportamiento dinámico del sistema.
+## 📌 2. ¿Por qué el signo en la ecuación diferencial es negativo?
+
+El signo negativo indica que la cantidad de material **disminuye con el tiempo**, ya que la desintegración reduce la masa original.
 
 ---
 
-## ⚙️ ¿Qué es el método de los operadores?
-Usa operadores diferenciales (como \( D = \frac{d}{dt} \)) para reducir el sistema a ecuaciones algebraicas y facilitar su resolución.
+## 📌 3. ¿Cuál es la condición inicial dada en el problema?
+
+La **condición inicial** es:
+
+$$
+N(0) = N_0
+$$
+
+donde $N_0$ representa la masa inicial del material.
 
 ---
 
-## 🔄 ¿Cuándo se usa la transformada de Laplace?
-Cuando se tienen condiciones iniciales y se desea transformar el sistema en:
+## 📌 4. ¿Qué información proporciona la condición en $t = 1$?
 
-\[
-s\bar{\mathbf{X}}(s) - \mathbf{x}(0) = A\bar{\mathbf{X}}(s) + \bar{\mathbf{F}}(s)
-\]
+Se indica que el **10% del material se ha desintegrado** tras una hora:
 
----
-
-## 🆚 ¿Ventajas de la transformada de Laplace?
-- Incorpora automáticamente las condiciones iniciales.
-- Maneja términos no homogéneos y discontinuidades con facilidad.
+$$
+N(1) = 0.9N_0
+$$
 
 ---
 
-## 🧪 ¿Qué aplicaciones tienen?
-- **Física:** circuitos eléctricos.
-- **Biología:** interacciones entre especies.
-- **Ingeniería:** vibraciones acopladas.
-- **Química:** cinética de reacciones múltiples.
+## 📌 5. ¿Por qué se usa la transformada de Laplace para resolver este problema?
+
+La **transformada de Laplace** convierte ecuaciones diferenciales en algebraicas, lo cual:
+
+- Facilita el tratamiento de condiciones iniciales.
+- Permite una resolución sistemática.
 
 ---
 
-## 🧠 ¿Qué son los valores propios en estos sistemas?
-Son los \( \lambda \) que satisfacen:
+## 📌 6. ¿Cuál es la transformada de Laplace de $\frac{dN}{dt}$?
 
-\[
-\det(A - \lambda I) = 0
-\]
-
-y están asociados a soluciones del tipo:
-
-\[
-\mathbf{x}(t) = \mathbf{v}e^{\lambda t}
-\]
+$$
+\mathcal{L}\left\{\frac{dN}{dt}\right\} = s \bar{N}(s) - N_0
+$$
 
 ---
 
-## 🔁 ¿Qué pasa si hay valores propios complejos?
-Aparecen soluciones oscilatorias:
+## 📌 7. ¿Qué resulta al aplicar la transformada al lado derecho de $\frac{dN}{dt} = -kN$?
 
-\[
-\mathbf{x}(t) = e^{\alpha t}(\mathbf{A}\cos(\beta t) + \mathbf{B}\sin(\beta t))
-\]
-
-donde \( \lambda = \alpha \pm \beta i \).
+$$
+\mathcal{L}\left\{-kN(t)\right\} = -k \bar{N}(s)
+$$
 
 ---
 
-## 🧮 ¿Cómo se usa el método de eliminación?
-Se elimina una variable mediante sustitución u operadores para obtener una ecuación de orden mayor en una sola función.
+## 📌 8. ¿Cuál es la expresión de $\bar{N}(s)$ tras resolver la ecuación algebraica?
+
+$$
+\bar{N}(s) = \frac{N_0}{s + k}
+$$
 
 ---
 
-## 🧾 ¿Qué es una solución fundamental?
-Un conjunto de soluciones linealmente independientes que forman una base del espacio solución del sistema.
+## 📌 9. ¿Cómo se obtiene $N(t)$ a partir de $\bar{N}(s)$?
+
+Aplicando la **transformada inversa de Laplace**:
+
+$$
+\mathcal{L}^{-1}\left\{\frac{1}{s + k}\right\} = e^{-kt}
+$$
+
+Por lo tanto:
+
+$$
+N(t) = N_0 e^{-kt}
+$$
 
 ---
 
-## 📊 ¿Por qué es importante la linealidad?
-Porque permite el **principio de superposición**, que facilita construir soluciones generales a partir de soluciones particulares.
+## 📌 10. ¿Cómo se usa la condición $N(1) = 0.9N_0$ para encontrar $k$?
+
+Sustituyendo en la solución:
+
+$$
+0.9N_0 = N_0 e^{-k} \Rightarrow e^{-k} = 0.9 \Rightarrow k = -\ln(0.9)
+$$
 
 ---
 
-## 📌 ¿Qué papel juegan las condiciones iniciales?
-Permiten encontrar los coeficientes de la combinación lineal en la solución general para obtener la solución específica al problema.
+## 📌 11. ¿Qué valor aproximado tiene $k$?
+
+$$
+k \approx -\ln(0.9) \approx 0.10536
+$$
 
 ---
 
-## 📏 ¿Cómo se verifica si un conjunto de soluciones es fundamental?
-Calculando el **Wronskiano**:
+## 📌 12. ¿Qué es la vida media en este contexto?
 
-\[
-W(\mathbf{x}_1, \mathbf{x}_2, \dots) \neq 0
-\]
+Es el tiempo $t_{1/2}$ en el cual la cantidad de material se reduce a la mitad:
 
-implica independencia lineal.
-
----
-
-## ⚠️ ¿Qué limitaciones tiene la transformada de Laplace?
-- Requiere que las funciones sean de **orden exponencial**.
-- No siempre aplicable a sistemas **no lineales** o con condiciones no estándar.
+$$
+N(t_{1/2}) = \frac{N_0}{2}
+$$
 
 ---
 
-## 🔁 ¿Cómo se relacionan con modelos dinámicos?
-Describen cómo las variables de un sistema interactúan y evolucionan con el tiempo. Son clave para modelar sistemas acoplados.
+## 📌 13. ¿Cómo se deriva la fórmula de la vida media?
+
+Desde:
+
+$$
+\frac{N_0}{2} = N_0 e^{-k t_{1/2}} \Rightarrow e^{-k t_{1/2}} = \frac{1}{2} \Rightarrow k t_{1/2} = \ln 2
+$$
+
+Entonces:
+
+$$
+t_{1/2} = \frac{\ln 2}{k}
+$$
 
 ---
 
+## 📌 14. ¿Cuál es la expresión exacta de la vida media en este problema?
+
+$$
+t_{1/2} = \frac{\ln 2}{-\ln(0.9)} = \frac{\ln 2}{\ln\left(\frac{10}{9}\right)}
+$$
+
+---
+
+## 📌 15. ¿Cuál es el valor numérico aproximado de la vida media?
+
+$$
+t_{1/2} \approx \frac{0.69315}{0.10536} \approx 6.579 \text{ horas}
+$$
+
+---
+
+## 📌 16. ¿Por qué no es necesario conocer $N_0$ explícitamente?
+
+Porque $N_0$ se **cancela en las proporciones** al sustituir condiciones como:
+
+- $N(1) = 0.9N_0$
+- $N(t_{1/2}) = \frac{N_0}{2}$
+
+---
+
+## 📌 17. ¿Qué tipo de función es $N(t) = N_0 e^{-kt}$?
+
+Una **función exponencial decreciente**.
+
+---
+
+## 📌 18. ¿Cómo se verifica que la solución satisface la condición en $t = 1$?
+
+Sustituyendo $k = -\ln(0.9)$:
+
+$$
+N(1) = N_0 e^{-(-\ln(0.9))} = N_0 e^{\ln(0.9)} = 0.9N_0
+$$
+
+---
+
+## 📌 19. ¿Qué representa físicamente la constante $k$?
+
+La constante de desintegración $k$ representa **la rapidez con la que el material se desintegra**.
+
+---
+
+## 📌 20. ¿Qué pasaría si el 20% del material se desintegrara en una hora?
+
+Tendríamos:
+
+$$
+e^{-k} = 0.8 \Rightarrow k = -\ln(0.8)
+$$
+
+Y la vida media sería:
+
+$$
+t_{1/2} = \frac{\ln 2}{-\ln(0.8)}
+$$
+
+Este valor sería **menor**, indicando una desintegración **más rápida**.
+
+---
+
+### 📎 Nota final
+
+Este problema representa un clásico modelo matemático aplicado a la física nuclear y a otros contextos donde se presentan procesos de decaimiento exponencial.
