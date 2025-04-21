@@ -1,338 +1,210 @@
-Teoría de Electrónica Digital
-3.1 Compuertas Lógicas y Tablas de Verdad
-Las compuertas lógicas son los bloques fundamentales de los circuitos digitales. Estas operan con señales binarias (0 y 1) y realizan operaciones lógicas básicas. Cada compuerta tiene una tabla de verdad que describe su comportamiento, mostrando todas las combinaciones posibles de entradas y la salida correspondiente.
-Tipos de Compuertas Lógicas
+# 📘 Preguntas y Respuestas sobre el Problema de Desintegración Radiactiva
 
-NOT (Inversor): Invierte la entrada.
+Este documento recopila las preguntas más comunes relacionadas con el modelado matemático de la desintegración radiactiva, resolviendo paso a paso el proceso mediante ecuaciones diferenciales y transformadas de Laplace.
 
-Símbolo: Un triángulo con un círculo en la salida.
-Ecuación: ( Y = \overline{A} )
-Tabla de verdad:A | Y
---|--
-0 | 1
-1 | 0
+---
 
+## 📌 1. ¿Qué tipo de ecuación diferencial se utiliza para modelar la desintegración radiactiva?
 
+Una **ecuación diferencial lineal de primer orden**:
 
+$$
+\frac{dN}{dt} = -kN
+$$
 
-AND (Y): La salida es 1 solo si todas las entradas son 1.
+donde:
 
-Símbolo: Forma de "D" con entradas y salida.
-Ecuación: ( Y = A \cdot B )
-Tabla de verdad (2 entradas):A | B | Y
---|--|--
-0 | 0 | 0
-0 | 1 | 0
-1 | 0 | 0
-1 | 1 | 1
+- $N(t)$ es la cantidad de material radiactivo en el tiempo $t$.
+- $k$ es la **constante de desintegración**.
 
+---
 
+## 📌 2. ¿Por qué el signo en la ecuación diferencial es negativo?
 
+El signo negativo indica que la cantidad de material **disminuye con el tiempo**, ya que la desintegración reduce la masa original.
 
-OR (O): La salida es 1 si al menos una entrada es 1.
+---
 
-Símbolo: Forma curva con entradas y salida.
-Ecuación: ( Y = A + B )
-Tabla de verdad (2 entradas):A | B | Y
---|--|--
-0 | 0 | 0
-0 | 1 | 1
-1 | 0 | 1
-1 | 1 | 1
+## 📌 3. ¿Cuál es la condición inicial dada en el problema?
 
+La **condición inicial** es:
 
+$$
+N(0) = N_0
+$$
 
+donde $N_0$ representa la masa inicial del material.
 
-NAND (NO Y): Inverso de AND. La salida es 0 solo si todas las entradas son 1.
+---
 
-Ecuación: ( Y = \overline{A \cdot B} )
-Tabla de verdad:A | B | Y
---|--|--
-0 | 0 | 1
-0 | 1 | 1
-1 | 0 | 1
-1 | 1 | 0
+## 📌 4. ¿Qué información proporciona la condición en $t = 1$?
 
+Se indica que el **10% del material se ha desintegrado** tras una hora:
 
+$$
+N(1) = 0.9N_0
+$$
 
+---
 
-NOR (NO O): Inverso de OR. La salida es 1 solo si todas las entradas son 0.
+## 📌 5. ¿Por qué se usa la transformada de Laplace para resolver este problema?
 
-Ecuación: ( Y = \overline{A + B} )
-Tabla de verdad:A | B | Y
---|--|--
-0 | 0 | 1
-0 | 1 | 0
-1 | 0 | 0
-1 | 1 | 0
+La **transformada de Laplace** convierte ecuaciones diferenciales en algebraicas, lo cual:
 
+- Facilita el tratamiento de condiciones iniciales.
+- Permite una resolución sistemática.
 
+---
 
+## 📌 6. ¿Cuál es la transformada de Laplace de $\frac{dN}{dt}$?
 
-XOR (O Exclusivo): La salida es 1 si el número de entradas en 1 es impar.
+$$
+\mathcal{L}\left\{\frac{dN}{dt}\right\} = s \bar{N}(s) - N_0
+$$
 
-Ecuación: ( Y = A \oplus B = \overline{A}B + A\overline{B} )
-Tabla de verdad:A | B | Y
---|--|--
-0 | 0 | 0
-0 | 1 | 1
-1 | 0 | 1
-1 | 1 | 0
+---
 
+## 📌 7. ¿Qué resulta al aplicar la transformada al lado derecho de $\frac{dN}{dt} = -kN$?
 
+$$
+\mathcal{L}\left\{-kN(t)\right\} = -k \bar{N}(s)
+$$
 
+---
 
-XNOR (NO O Exclusivo): Inverso de XOR. La salida es 1 si el número de entradas en 1 es par.
+## 📌 8. ¿Cuál es la expresión de $\bar{N}(s)$ tras resolver la ecuación algebraica?
 
-Ecuación: ( Y = \overline{A \oplus B} = A\overline{B} + \overline{A}B )
-Tabla de verdad:A | B | Y
---|--|--
-0 | 0 | 1
-0 | 1 | 0
-1 | 0 | 0
-1 | 1 | 1
+$$
+\bar{N}(s) = \frac{N_0}{s + k}
+$$
 
+---
 
+## 📌 9. ¿Cómo se obtiene $N(t)$ a partir de $\bar{N}(s)$?
 
+Aplicando la **transformada inversa de Laplace**:
 
+$$
+\mathcal{L}^{-1}\left\{\frac{1}{s + k}\right\} = e^{-kt}
+$$
 
-Tablas de Verdad
-Una tabla de verdad lista todas las combinaciones posibles de las entradas de un circuito lógico y la salida correspondiente. Para ( n ) entradas, hay ( 2^n ) filas. Se utilizan para:
+Por lo tanto:
 
-Describir el comportamiento de compuertas o circuitos.
-Derivar expresiones booleanas.
-Verificar equivalencias lógicas.
+$$
+N(t) = N_0 e^{-kt}
+$$
 
-3.1.1 Lógica TTL
-TTL (Transistor-Transistor Logic) es una familia de circuitos integrados digitales que utilizan transistores bipolares. Las compuertas lógicas implementadas en TTL (como NOT, AND, OR, NAND, NOR, XOR) tienen características específicas:
+---
 
-Voltajes: 0 V (lógico 0), 5 V (lógico 1).
-Velocidad: Rápida para su época, pero consume más energía que CMOS.
-Fan-out: Capacidad de una compuerta para manejar múltiples entradas de otras compuertas (típicamente 10 en TTL estándar).
-Ruido: Sensible al ruido, requiere fuentes de alimentación estables.
-Ejemplos de CI TTL:
-7400: Cuatro compuertas NAND de 2 entradas.
-7402: Cuatro compuertas NOR de 2 entradas.
-7404: Seis inversores NOT.
-7486: Cuatro compuertas XOR de 2 entradas.
+## 📌 10. ¿Cómo se usa la condición $N(1) = 0.9N_0$ para encontrar $k$?
 
+Sustituyendo en la solución:
 
+$$
+0.9N_0 = N_0 e^{-k} \Rightarrow e^{-k} = 0.9 \Rightarrow k = -\ln(0.9)
+$$
 
-En prácticas con protoboard, las compuertas TTL se conectan con resistencias pull-up/pull-down y fuentes de 5 V, asegurando niveles lógicos claros.
-3.1.2 Teoremas, Postulados y Expresiones del Álgebra de Boole
-El álgebra de Boole es el marco matemático para analizar y simplificar circuitos lógicos. Se basa en variables binarias (0, 1) y operaciones lógicas (AND, OR, NOT).
-Postulados
+---
 
-Identidad:
-( A + 0 = A )
-( A \cdot 1 = A )
+## 📌 11. ¿Qué valor aproximado tiene $k$?
 
+$$
+k \approx -\ln(0.9) \approx 0.10536
+$$
 
-Complemento:
-( A + \overline{A} = 1 )
-( A \cdot \overline{A} = 0 )
+---
 
+## 📌 12. ¿Qué es la vida media en este contexto?
 
-Nulo:
-( A + 1 = 1 )
-( A \cdot 0 = 0 )
+Es el tiempo $t_{1/2}$ en el cual la cantidad de material se reduce a la mitad:
 
+$$
+N(t_{1/2}) = \frac{N_0}{2}
+$$
 
-Idempotencia:
-( A + A = A )
-( A \cdot A = A )
+---
 
+## 📌 13. ¿Cómo se deriva la fórmula de la vida media?
 
+Desde:
 
-Teoremas
+$$
+\frac{N_0}{2} = N_0 e^{-k t_{1/2}} \Rightarrow e^{-k t_{1/2}} = \frac{1}{2} \Rightarrow k t_{1/2} = \ln 2
+$$
 
-Conmutativo:
-( A + B = B + A )
-( A \cdot B = B \cdot A )
+Entonces:
 
+$$
+t_{1/2} = \frac{\ln 2}{k}
+$$
 
-Asociativo:
-( (A + B) + C = A + (B + C) )
-( (A \cdot B) \cdot C = A \cdot (B \cdot C) )
+---
 
+## 📌 14. ¿Cuál es la expresión exacta de la vida media en este problema?
 
-Distributivo:
-( A \cdot (B + C) = A \cdot B + A \cdot C )
-( A + (B \cdot C) = (A + B) \cdot (A + C) )
+$$
+t_{1/2} = \frac{\ln 2}{-\ln(0.9)} = \frac{\ln 2}{\ln\left(\frac{10}{9}\right)}
+$$
 
+---
 
-Absorción:
-( A + A \cdot B = A )
-( A \cdot (A + B) = A )
+## 📌 15. ¿Cuál es el valor numérico aproximado de la vida media?
 
+$$
+t_{1/2} \approx \frac{0.69315}{0.10536} \approx 6.579 \text{ horas}
+$$
 
-De Morgan:
-( \overline{A + B} = \overline{A} \cdot \overline{B} )
-( \overline{A \cdot B} = \overline{A} + \overline{B} )
+---
 
+## 📌 16. ¿Por qué no es necesario conocer $N_0$ explícitamente?
 
-Involución:
-( \overline{\overline{A}} = A )
+Porque $N_0$ se **cancela en las proporciones** al sustituir condiciones como:
 
+- $N(1) = 0.9N_0$
+- $N(t_{1/2}) = \frac{N_0}{2}$
 
+---
 
-Expresiones Booleanas
+## 📌 17. ¿Qué tipo de función es $N(t) = N_0 e^{-kt}$?
 
-Una expresión booleana combina variables (A, B, C, etc.) con operaciones lógicas (AND, OR, NOT).
-Ejemplo: ( Y = A \cdot B + \overline{A} \cdot C ).
-Las expresiones se simplifican usando los teoremas para reducir el número de compuertas necesarias en un circuito.
+Una **función exponencial decreciente**.
 
-3.1.3 Minitérminos, Maxitérminos y Mapas deක
-Minitérminos
+---
 
-Un minitérmino es un producto (AND) de todas las variables de una función, donde cada variable aparece exactamente una vez, en forma directa o complementada.
-Representa una fila de la tabla de verdad donde la salida es 1.
-Ejemplo: Para 3 variables ( A, B, C ), el minitérmino ( A \cdot \overline{B} \cdot C ) corresponde a la combinación donde ( A=1, B=0, C=1 ).
-Una función en suma de productos (SOP) es la suma (OR) de minitérminos.
-Ejemplo: ( F = A \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot C ).
+## 📌 18. ¿Cómo se verifica que la solución satisface la condición en $t = 1$?
 
+Sustituyendo $k = -\ln(0.9)$:
 
+$$
+N(1) = N_0 e^{-(-\ln(0.9))} = N_0 e^{\ln(0.9)} = 0.9N_0
+$$
 
-Maxitérminos
+---
 
-Un maxitérmino es una suma (OR) de todas las variables, donde cada variable aparece exactamente una vez, en forma directa o complementada.
-Representa una fila de la tabla de verdad donde la salida es 0.
-Ejemplo: Para 3 variables, el maxitérmino ( A + B + \overline{C} ) corresponde a una combinación donde la salida es 0.
-Una función en producto de sumas (POS) es el producto (AND) de maxitérminos.
-Ejemplo: ( F = (A + B + \overline{C}) \cdot (\overline{A} + B + C) ).
+## 📌 19. ¿Qué representa físicamente la constante $k$?
 
+La constante de desintegración $k$ representa **la rapidez con la que el material se desintegra**.
 
+---
 
-Mapas de Karnaugh
-El mapa de Karnaugh (K-map) es una herramienta gráfica para simplificar expresiones booleanas.
+## 📌 20. ¿Qué pasaría si el 20% del material se desintegrara en una hora?
 
-Estructura:
-Para ( n ) variables, el mapa tiene ( 2^n ) celdas.
-Cada celda representa un minitérmino.
-Las variables se organizan para que celdas adyacentes difieran en una sola variable (código Gray).
+Tendríamos:
 
+$$
+e^{-k} = 0.8 \Rightarrow k = -\ln(0.8)
+$$
 
-Pasos para simplificar:
-Llenar el mapa con 1s (para SOP) o 0s (para POS) según la tabla de verdad.
-Agrupar 1s (o 0s) en bloques de ( 2^n ) celdas (1, 2, 4, 8, etc.).
-Cada grupo genera un término simplificado:
-Incluir solo las variables que no cambian dentro del grupo.
-Si una variable es 1, aparece sin complementar; si es 0, aparece complementada.
+Y la vida media sería:
 
+$$
+t_{1/2} = \frac{\ln 2}{-\ln(0.8)}
+$$
 
-La expresión final es la suma (para SOP) o producto (para POS) de los términos.
+Este valor sería **menor**, indicando una desintegración **más rápida**.
 
+---
 
-Reglas:
-Los grupos deben ser lo más grandes posible.
-Minimizar el número de grupos.
-Los grupos pueden solaparse y envolverse (aristas opuestas son adyacentes).
+### 📎 Nota final
 
-
-
-Ejercicios de Simplificación
-Ejercicio 1: Simplificación por Álgebra de Boole y Mapa de Karnaugh
-Dada la expresión: ( F = \overline{A} \cdot (B + \overline{C}) + A \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot \overline{C} )
-a) Simplificación por Álgebra de Boole
-
-Reescribir la expresión:[F = \overline{A} \cdot B + \overline{A} \cdot \overline{C} + A \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot \overline{C}]
-Agrupar términos comunes:[F = \overline{A} \cdot B \cdot (1 + \overline{C}) + \overline{A} \cdot \overline{C} + A \cdot \overline{B} \cdot C]
-Aplicar ( 1 + \overline{C} = 1 ):[F = \overline{A} \cdot B + \overline{A} \cdot \overline{C} + A \cdot \overline{B} \cdot C]
-No se puede simplificar más sin combinar términos incompatibles.
-
-b) Simplificación por Mapa de Karnaugh
-
-Construir la tabla de verdad para ( F ):A | B | C | F
---|--|--|--
-0 | 0 | 0 | 0
-0 | 0 | 1 | 0
-0 | 1 | 0 | 1
-0 | 1 | 1 | 1
-1 | 0 | 0 | 0
-1 | 0 | 1 | 1
-1 | 1 | 0 | 0
-1 | 1 | 1 | 0
-
-
-Llenar el K-map (3 variables: ( A ), ( B ), ( C )):    BC
-     00 01 11 10
-A 0 | 0  0  1  1
-  1 | 0  1  0  0
-
-
-Agrupar los 1s:
-Grupo 1: ( (0,1,0) ) y ( (0,1,1) ) → ( \overline{A} \cdot B )
-Grupo 2: ( (0,0,1) ) y ( (0,1,1) ) → ( \overline{A} \cdot \overline{C} )
-Grupo 3: ( (1,0,1) ) → ( A \cdot \overline{B} \cdot C )
-
-
-Expresión simplificada:[F = \overline{A} \cdot B + \overline{A} \cdot \overline{C} + A \cdot \overline{B} \cdot C]
-
-Nota: En este caso, el K-map confirma la expresión, pero no reduce más términos.
-Ejercicio 2: Simplificación de una Expresión No SOP
-Dada la expresión: ( F = (A + \overline{B}) \cdot (\overline{A} + C) + \overline{A} \cdot B \cdot \overline{C} )
-a) Simplificación por Álgebra de Boole
-
-Expandir ( (A + \overline{B}) \cdot (\overline{A} + C) ):[(A + \overline{B}) \cdot (\overline{A} + C) = A \cdot \overline{A} + A \cdot C + \overline{B} \cdot \overline{A} + \overline{B} \cdot C]
-Simplificar ( A \cdot \overline{A} = 0 ):[= A \cdot C + \overline{B} \cdot \overline{A} + \overline{B} \cdot C]
-Sumar el término restante:[F = A \cdot C + \overline{B} \cdot \overline{A} + \overline{B} \cdot C + \overline{A} \cdot B \cdot \overline{C}]
-Buscar términos comunes:[F = \overline{A} \cdot (\overline{B} + B \cdot \overline{C}) + A \cdot C + \overline{B} \cdot C]
-Simplificar ( \overline{B} + B \cdot \overline{C} = \overline{B} + \overline{C} ):[F = \overline{A} \cdot (\overline{B} + \overline{C}) + A \cdot C + \overline{B} \cdot C]
-Combinar términos con ( \overline{B} \cdot C ):[F = \overline{A} \cdot \overline{B} + \overline{A} \cdot \overline{C} + A \cdot C + \overline{B} \cdot C]
-
-b) Simplificación por Mapa de Karnaugh
-
-Construir la tabla de verdad para ( F ):A | B | C | F
---|--|--|--
-0 | 0 | 0 | 1
-0 | 0 | 1 | 1
-0 | 1 | 0 | 1
-0 | 1 | 1 | 0
-1 | 0 | 0 | 0
-1 | 0 | 1 | 1
-1 | 1 | 0 | 0
-1 | 1 | 1 | 1
-
-
-Llenar el K-map:    BC
-     00 01 11 10
-A 0 | 1  1  0  1
-  1 | 0  1  1  0
-
-
-Agrupar los 1s:
-Grupo 1: ( (0,0,0) ), ( (0,0,1) ), ( (0,1,0) ) → ( \overline{A} )
-Grupo 2: ( (1,0,1) ), ( (1,1,1) ) → ( A \cdot C )
-
-
-Expresión simplificada:[F = \overline{A} + A \cdot C]
-
-Comparación: El K-map produce una expresión más simple (( \overline{A} + A \cdot C )) que el álgebra de Boole, mostrando la potencia del método gráfico.
-Consejos para el Examen
-
-Compuertas y Tablas de Verdad:
-Memoriza las tablas de verdad de las compuertas básicas.
-Practica derivar tablas de verdad para circuitos combinacionales.
-
-
-Álgebra de Boole:
-Domina los teoremas de De Morgan y distributivos.
-Practica expandir y factorizar expresiones.
-
-
-Mapas de Karnaugh:
-Practica construir K-maps rápidamente para 3 y 4 variables.
-Asegúrate de agrupar correctamente y verificar bordes envolventes.
-
-
-Ejercicios:
-Resuelve expresiones no SOP/POS convirtiéndolas primero a SOP o usando K-maps.
-Verifica tus resultados con la tabla de verdad si el tiempo lo permite.
-
-
-Prácticas Anteriores:
-Revisa tus circuitos en protoboard para recordar conexiones de compuertas TTL.
-Relaciona las simplificaciones de las prácticas con los métodos teóricos.
-
-
-
+Este problema representa un clásico modelo matemático aplicado a la física nuclear y a otros contextos donde se presentan procesos de decaimiento exponencial.
